@@ -15,9 +15,8 @@ int main() {
 	char str[128];
 	char temp;
 	char *start, *end;
-
+	int endIndex;
 	start = str;
-	//end = &str[sizeof(str)-1];
 
 	for (int i = 0; i < sizeof(str); i++)
 	{
@@ -29,17 +28,11 @@ int main() {
 	{
 		if (str[i] == ' ')
 		{
-			end = &str[i];
+			end = &str[i-1];
+			endIndex = i;
 		}
 	}
-//	while (end > start)
-//	{
-//		temp = *start;
-//		*start = *end;
-//		*end = temp;
-//		start++;
-//		end--;
-//	}
+
 	temp = *start;
 	*start = *end;
 	*end = temp;
@@ -52,6 +45,6 @@ int main() {
 		};
 		cout << str[i];
 	}
-
+	cout << "-" << "ay" << endl;
 	return 0;
 }
