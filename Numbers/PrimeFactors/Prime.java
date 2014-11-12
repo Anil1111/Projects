@@ -1,6 +1,7 @@
 /* Prime.java */
 import java.util.Scanner;
-//import java.math.BigInteger;// may be useful in future
+import java.util.List;
+import java.util.LinkedList;
 // Sieve of Erastothenes
 // See: http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 
@@ -17,8 +18,16 @@ public class Prime
       intIn = scanner.nextInt();
       for (int i = 0; i <= intIn; i++)
       {
-         
+         integers.add(i);
       }
+      System.out.println("Integers added to list.\nPrinting them.");
+      printList(integers);
    }
+   
+   private static void printList(List<Integer> list)   
+   {      System.out.println("\nList: ");      
+      for (int integers : list)         
+      System.out.printf("%d%n", integers);   
+      } //end
    
 }// end class
