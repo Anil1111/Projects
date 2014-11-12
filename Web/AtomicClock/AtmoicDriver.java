@@ -3,12 +3,12 @@
 
 public class AtmoicDriver
 {
-   private GetAtomicNTP getAtomicNTP;
+   private AtomicGUI atomicGUI;
    public static void main(String[] args)
    {
-      GetAtomicNTP getAtomicNTP = new GetAtomicNTP();
-      getAtomicNTP.retrieveTime();
+      //GetAtomicNTP getAtomicNTP = new GetAtomicNTP();
+      //getAtomicNTP.retrieveTime();
+      AtomicGUI atomicGUI = new AtomicGUI();
+      
    }
-
-
 }//end class

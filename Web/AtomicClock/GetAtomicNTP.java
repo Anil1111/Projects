@@ -10,15 +10,11 @@ import org.apache.commons.net.ntp.TimeStamp;
 
 public class GetAtomicNTP
 {
-   public GetAtomicNTP()
+   private static String dateString;
+   public static String retrieveTime()
    {
-
-   }
-   
-   
-   public static void retrieveTime()
-   {
-         NTPUDPClient client = new NTPUDPClient();
+      
+      NTPUDPClient client = new NTPUDPClient();
       String ntpServer = "nist1-pa.ustiming.org";
       client.setDefaultTimeout(10000);
       try
@@ -26,19 +22,14 @@ public class GetAtomicNTP
          client.open();
          InetAddress serverAddress = InetAddress.getByName(ntpServer);
          TimeInfo timeInfo = client.getTime(serverAddress);
-         System.out.println(processTime(timeInfo));
+         NtpV3Packet response = timeInfo.getMessage();
+         TimeStamp timeStamp = response.getReferenceTimeStamp();
+         dateString = timeStamp.toDateString();
       }
       catch (IOException ex) {
          ex.printStackTrace();
-   
+      
+      }
+      return dateString;
    }
-   }
-   
-   private static String processTime(TimeInfo time)
-   {
-      NtpV3Packet response = time.getMessage();
-      TimeStamp timeStamp = response.getReferenceTimeStamp();
-      //System.out.println(timeStamp.toDateString());
-      return timeStamp.toDateString();
-   } //end processTime
 }// end class
