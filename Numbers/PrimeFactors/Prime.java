@@ -25,9 +25,18 @@ public class Prime
    }
    
    private static void printList(List<Integer> list)   
-   {      System.out.println("\nList: ");      
-      for (int integers : list)         
-      System.out.printf("%d%n", integers);   
-      } //end
+   {      
+      System.out.println("\nList: ");
+      int width = 10;
+       
+           
+      for (int integers : list)
+      {
+         
+         System.out.printf("%d ", integers);
+         if (integers % width == 0)
+         System.out.println("\n");
+      }   
+   } //end
    
 }// end class
