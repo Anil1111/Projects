@@ -10,6 +10,7 @@ public class Prime
 
    public static void main(String[] args)
    {
+   /* 
       int intIn;
       List<Integer> integers = new LinkedList<Integer>();
       Scanner scanner = new Scanner(System.in);
@@ -22,13 +23,31 @@ public class Prime
       }
       System.out.println("Integers added to list.\nPrinting them.");
       printList(integers);
+      */
+      Scanner scanner = new Scanner(System.in);
+      int intIn;
+      boolean[] bool;
+      System.out.println("Enter a number: ");
+      intIn = scanner.nextInt();
+      bool = new boolean[intIn];
+      for (int i = 0; i < intIn; i++)
+      {
+      bool[i] = true;
+      }
+      System.out.println("Done.");
+      for (int i = 0; i < intIn; i++)
+      {
+      System.out.println("Index: " + i + bool[i]);
+      }
+      
+
    }
    
-   private static void printList(List<Integer> list)   
-   {      
+   private static void printList(List<Integer> list)   
+   {      
       System.out.println("\nList: ");
       int width = 10;
-       
+      
            
       for (int integers : list)
       {
@@ -40,3 +59,5 @@ public class Prime
    } //end
    
 }// end class
+
+
