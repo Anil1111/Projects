@@ -26,21 +26,30 @@ public class Prime
       */
       Scanner scanner = new Scanner(System.in);
       int intIn;
+      int sqrtUpperBound;
       boolean[] bool;
       System.out.println("Enter a number: ");
       intIn = scanner.nextInt();
-      bool = new boolean[intIn];
-      for (int i = 0; i < intIn; i++)
+      sqrtUpperBound = (int) Math.sqrt(intIn);
+      
+      bool = new boolean[intIn + 1];
+      for (int i = 2; i <= sqrtUpperBound; i++)
       {
-      bool[i] = true;
+         if (!bool[i])
+         {
+            System.out.println(i + " ");
+            for (int j = i * i; j <= intIn; j+=i)
+               bool[j]=true;
+         }
       }
       System.out.println("Done.");
-      for (int i = 0; i < intIn; i++)
+      for (int i = sqrtUpperBound; i < intIn ; i++)
       {
-      System.out.println("Index: " + i + bool[i]);
+      if (!bool[i])
+         System.out.println(i + " ");
       }
       
-
+   
    }
    
    private static void printList(List<Integer> list)   
@@ -54,7 +63,7 @@ public class Prime
          
          System.out.printf("%d ", integers);
          if (integers % width == 0)
-         System.out.println("\n");
+            System.out.println("\n");
       }   
    } //end
    
